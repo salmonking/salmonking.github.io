@@ -1,0 +1,117 @@
+<head>
+  <title>AR MONSTER Apocalypse</title>
+  
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  <script>
+  <style>
+    h1{
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+#io {
+  text-align: center;
+}
+#unibutton {
+  padding: 2px;
+  margin: 2px;
+}
+
+#headerGroup{
+  opacity: 0.75;
+  background-color: #CCFF90;
+  border-radius: 33px;
+  margin: 50px;
+  padding: 1px;
+}
+
+.aboveFrame {
+  z-index: 9001;
+}
+
+.myScene {
+  z-index: 2;
+}
+  </style>
+  <script>
+  // Event Handlers
+
+// assignments
+const b12 = document.querySelector("#bar12Marker")
+const b32 = document.querySelector("#bar32Marker")
+const b45 = document.querySelector("#bar45Marker")
+
+// handlers
+b12.addEventListener('markerFound', function(event) {
+  // our code here
+  // zombies?
+})
+
+b32.addEventListener('markerFound', function(event) {
+  // our code here
+  // aliens?
+})
+
+b45.addEventListener('markerFound', function(event) {
+  // our code here
+  // vampires?
+  printHello();
+})
+
+function hello() {
+  let msg1 = "You Win!";
+  let msg2 = "Zombies Win!";
+  if(Math.random()>=0.5){
+    return msg1;
+  } else {
+    return msg2;
+  }
+}
+
+function printHello() {
+  document.getElementById("myTarget").innerText
+   = hello();
+}
+  </script>
+    // this will eventually have a src for AR.js
+  </script>
+</head>
+<body>
+  <article id="gameCtr" class="aboveFrame">
+    <div id="headerGroup">
+      <h1>AR Monster Apocalypse!</h1>
+      <h2>By Nuh Shaheer, Kavi Soman, and Sathian Somon</h2>
+      <h2>E.P: Matthew T Meneghini, CodeWiz Westford</h2>
+    </div>
+    <section id="zombie_vapers" class="aboveFrame">
+      <div id="zombie_output"></div>
+  </section>
+    <section id="alien_section" class="aboveFrame"></section>
+    <section id="vampires_p" class="aboveFrame"></section>
+    <section id="wevewolves_p" class="aboveFrame"></section>
+    <section id="russteefaucet_p" class="aboveFrame"></section>
+    <section id="io" class="aboveFrame">
+      <button id="unibutton">Start</button>
+    </section>
+    <h1>Zombie Vapers</h1>
+    <h2 id="myTarget"></h2>
+  </article>
+
+  <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" class="myScene">
+     <a-marker type="barcode" value="12" id="bar12Marker" emitevents="true">
+      <a-sphere position='0 0.5 0' material='color: black;'></a-sphere>
+    </a-marker>
+    <a-marker type="barcode" value="32" id="bar32Marker" emitevents="true">
+      <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+    </a-marker>
+    <a-marker type="barcode" value="45" id="bar45Marker" emitevents="true">
+      <a-tetrahedron position='0 0.5 0' material='color: blue;'></a-tetrahedron>  
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
